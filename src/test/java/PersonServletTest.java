@@ -57,25 +57,25 @@ class PersonServletTest {
 
     @Test
     void testContentType() throws IOException {
-        // Настройка моков
+
         when(response.getWriter()).thenReturn(writer);
 
-        // Вызов метода doGet
+
         servlet.doGet(request, response);
 
-        // Проверка, что тип контента был установлен на application/json
+
         verify(response).setContentType("application/json");
     }
 
     @Test
     void testCharacterEncoding() throws IOException {
-        // Настройка моков
+
         when(response.getWriter()).thenReturn(writer);
 
-        // Вызов метода doGet
+
         servlet.doGet(request, response);
 
-        // Проверка, что кодировка была установлена на UTF-8
+
         verify(response).setCharacterEncoding("UTF-8");
     }
 }

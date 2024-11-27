@@ -10,7 +10,7 @@ import java.io.IOException;
 @WebServlet("/person")
 public class PersonServlet extends HttpServlet {
 
-    // Простой класс, который мы будем сериализовать в JSON
+
     public static class Person {
         private String name;
         private int age;
@@ -20,7 +20,7 @@ public class PersonServlet extends HttpServlet {
             this.age = age;
         }
 
-        // Геттеры и сеттеры
+
         public String getName() {
             return name;
         }
@@ -40,17 +40,14 @@ public class PersonServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // Создаем объект Person
+
         Person person = new Person("John Doe", 30);
 
-        // Создаем ObjectMapper для конвертации объекта в JSON
         ObjectMapper objectMapper = new ObjectMapper();
 
-        // Устанавливаем тип контента на JSON
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        // Сериализуем объект Person в JSON и записываем его в ответ
         objectMapper.writeValue(response.getWriter(), person);
     }
 }
